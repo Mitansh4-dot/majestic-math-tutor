@@ -1,0 +1,411 @@
+/* root is just a standardised and global locker like thing which stores all the styling and 
+different things in it which stay global for the whole website, and when variable pull the specific
+label/sticker from the root, they get its value from any web page, it helps in writing a common 
+styling for different things on different pages and extracting those style values by itself */
+/* Login Page 1 and Common thing like navbar and styling */
+:root{
+  --bg-color: #bcd3eb;           /* global workspace background */
+  --nav-color: #3f51b5;          /* header frame */
+  --nav-text: #ffffff;
+  --info-panel: #e2f0d9;         /* instruction / info panels */
+  --side-panel: #fce4d6;         /* side control decks / quiz status */
+  --math-bg: #fff2cc;            /* mathematics theme backgrounds */        
+  --btn-bg: #9875a7; /* topic elements / score badges */
+  --input-bg: #ffffff;
+  --box-border: #000000;
+  --card-bg: #cbffde;
+  --correct-color: #7fff00;      /* neon green for completed bars */
+  --not-taken-color: #d9d9d9;
+  --font-size-base: 21px;
+  --p-base:19px;
+  --a-base:19px;
+  background: linear-gradient(to bottom, #8cdc30, #e0eba9);
+  background: linear-gradient(to bottom, #ff701d, #ffbd43);
+  background: linear-gradient(to bottom, #fbf4ce, #fcdb43);
+  background: linear-gradient(to bottom, #8265cf, #6130e8);
+  background: linear-gradient(to bottom, #6eccf3,#074e9e);
+} 
+:root{
+    --body-fontfamily: sans-serif;
+    --a-base-fontsize: 19px;
+    --p-base-fontsize: 19px;
+    --li-base-fontsize: 19px;
+    --h2-base-fontsize: 20px;
+    --h1-base-fontsize: 21px; 
+    --column1-bg:#cbffde;
+    --column2-bg: linear-gradient(to bottom, #6eccf3,#074e9e);
+  }   
+  html{
+    font-family: var(--body-fontfamily);
+  } 
+  body{
+    margin: 0;  
+  }    
+  .container{ 
+    display:flex;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+  }    
+  .navbar{
+    display: flex;
+    background-image:url("banner.png"); 
+    aspect-ratio: 513/65;
+    background-size:cover; 
+    background-repeat:no-repeat;
+    flex-direction: column;
+  }  
+  .navbar a{
+    color:#000b3d;
+    margin-left:15px;
+    margin-right:15px;
+  } 
+  .navbar a:hover{
+    background-color: blue;
+    padding: 8px;
+    border-radius: 5px;
+  }   
+  .title{
+    display: flex;
+    justify-content: center;
+  }  
+  .links{
+    display: flex;
+    justify-content: center;
+  } 
+   /* Position Relative sets the all elements to be inside the container and not take the elements
+   inside it to be placed in relevance to the whole screen, like the hero image is 50%, 50% top and left
+   making it in center screen, z-index is for placing the objects over other elements for overlapping */    
+  .content{
+    display: flex;
+    position: relative;   
+  }    
+  .column1{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 980px;
+    background: var(--column1-bg); 
+  } 
+  /* Height auto just sets the height as per the elements inside the container, so that nothings goes out, 
+  justify content is for vertical and align items is for horizontally centering */ 
+  .column2{
+    display: flex; 
+    flex-direction: column;
+    width: 40%;
+    background: var(--column2-bg);
+    align-items: center;
+    height:auto;
+  } 
+  /* Position absolute puts the image on a floating layer above the column 1 and 2's structure, 
+  aspect ratio is for width and height ratio proportion with the wider screen */ 
+  .heroimage{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-70%, -80%); 
+    aspect-ratio: 800/533;
+    width: 500px;
+    z-index: 10; 
+  } 
+  .cta-boxes{
+    display: flex;
+    width: 160px;
+    height: 160px;
+    text-align: center;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 75px;
+    animation: rotate 3s linear infinite;
+    margin-left: 25px;
+    margin-right: 25px;
+  } 
+  .cta-boxes p{
+    font-size: var(--p-base-fontsize);
+    font-weight: bold;
+    animation: anti-rotate 3s linear infinite;
+  } 
+  .cta-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  } 
+  @keyframes rotate{
+    from{
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes anti-rotate{
+    from{
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  } 
+  p{
+    font-size: var(--p-base);
+  } 
+
+
+*{ box-sizing: border-box; }
+
+/* Login Page 2 and Common thing like navbar and styling */
+
+h1, h2, h3, h4{ margin: 0;} 
+
+/* padding 16 px is from top and bottom and 18 px is from right and left, its puts away from sides */
+.container1{
+  display: flex;
+  flex-direction: column;
+} 
+.board{
+  border: 3px solid var(--box-border);
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 16px 18px;
+} 
+
+/* split layout used to arrange the columns and rows properly for tests and other pages 
+gap is between the elements as divs' inside it, padding is from the edges, the grid-template-columns
+just makes the columns to be differentiated for fraction unit of space, giving first column a 60%
+of the space and the 2nd one as 40% of the space, while the margin 0 and auto make the layout cover
+the full screen and the remaining width of the grid to be equally divided between left and right. 
+Next the css media queries just makes the grid layout to change as 1 fraction unit making both
+both the columns in a 1 row to shift in a single column but 2 rows with the screen sizes smaller 
+than or equal to 900 px */
+.split-layout{
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+} 
+@media (max-width: 900px){
+  .split-layout{ grid-template-columns: 1fr; }
+} 
+
+.panel-info{ background: var(--info-panel); }
+.panel-side{ background: var(--side-panel); }
+.panel-math{ background: var(--math-bg); }
+
+/* text decoration none is to make the underline effect that may come to be nullified whereas
+the padding 10 px is top-bottom and 16 px is right-left  */
+.btn{
+  background: var(--btn-bg);
+  color: var(--box-border);
+  border: 3px solid var(--box-border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: bold;
+  font-size: var(--p-base-fontsize);
+  cursor: pointer;
+  text-decoration: none;
+} 
+
+.btn-wide{ width: 100%; text-align:center; margin-top: 14px; }
+
+/* Labels and Inputs of the login details of the user */
+label{ display:flex; font-weight:bold; margin: 14px 6px; }
+input[type=text], select{
+  width: 100%;
+  padding: 10px 12px;
+  border: 3px solid var(--box-border);
+  border-radius: 8px;
+  background: var(--input-bg);
+  font-size: var(--p-base-fontsize);
+  margin-bottom: 10px;
+} 
+/* Position fixed makes the login card to pin on the screen, even after scrolling through the webpage
+ the top 50% makes the top of the box to the 50% mark, left 50% makes the left of the box to the 50%
+ halfway mark of the screen, and the transform x as -50% and y as -50% put it exactly in the center, 
+ max-height 75% of the viewport's height makes it not exceed the height of 75% of the screen anywhere, 
+ same for the width with 520 px*/
+.login-card{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 520px;
+  max-height: 75vh;
+}  
+.top-container{
+  display: flex;
+  background-image: url("Trigonometry.jpeg");
+  width: 100%;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+} 
+.middle-container{
+  display: flex;
+  background-image: url("Quadratics.jpg");
+  width: 100%;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+} 
+.bottom-container{
+  display: flex;
+  background-image: url("CentralTendency.jpeg");
+  width: 100%;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+} 
+
+
+/* ---------- Tests page ---------- */
+.test-card{
+  background: var(--card-bg);
+  border: 3px solid var(--box-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+} 
+.question-box{
+  background: #fff;
+  border: 3px solid var(--box-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.question-box p.q-text{ font-weight: bold; margin: 0 0 10px 0; }
+.option-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.option-item{
+  border: 3px solid var(--box-border);
+  border-radius: 8px;
+  padding: 9px 10px;
+  cursor: pointer;
+  background: #fff;
+}
+.option-item.picked{ background: var(--btn-bg); }
+.option-item.right-answer{ background: var(--correct-color); }
+.option-item.wrong-answer{ background: #ffb3ab; }
+
+.status-box .stat-line{
+  background: var(--btn-bg);
+  border: 3px solid var(--box-border);
+  border-radius: 20px;
+  padding: 10px 14px;
+  text-align:center;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* ---------- Reports page: conditional stacked bars ---------- */
+.chart-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 16px;
+  align-items: end;
+  height: 220px;
+  border-left: 3px solid var(--box-border);
+  border-bottom: 3px solid var(--box-border);
+  padding: 10px 14px 0 14px;
+}
+.chart-col{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.chart-bar{
+  width: 42px;
+  border: 3px solid var(--box-border);
+  border-radius: 4px 4px 0 0;
+  background: var(--not-taken-color);
+  transition: height 0.4s ease, background 0.4s ease;
+} 
+.chart-bar.completed{ background: var(--correct-color); }
+.chart-col-label{ font-size: 0.75rem; font-weight: bold; margin-top: 6px; text-align:center; }
+.chart-col-status{ font-size: 0.68rem; }
+
+/* ---------- Practice page ---------- */
+.unit-filter-row{ display:flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+.unit-filter-row button.selected-unit{
+  background: var(--correct-color);
+}
+
+/* ---------- History page ---------- */
+.history-row{
+  background: var(--card-bg);
+  border: 3px solid var(--box-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.muted{ font-style: italic; opacity: 0.75; }
+body.changesize200{
+    --a-base-fontsize: 21px;
+    --p-base-fontsize: 21px;
+    --li-base-fontsize: 21px;
+    --h2-base-fontsize: 22px;
+    --h1-base-fontsize: 23px;
+  }  
+body.changecolor{
+    --bg-color: #23262b;
+    --nav-color: #1a1d3a;
+    --nav-text: #ffffff;
+    --info-panel: #33402f;
+    --side-panel: #4a3728;
+    --math-bg: #4a4326;
+    --btn-bg: #33425c;
+    --box-border: #f2f2f2;
+    --card-bg: #545961;
+    --not-taken-color: #555555;
+    --a-base-fontcolor: white;
+    --p-base-fontcolor: white;
+    --li-base-fontcolor: white;
+    --h2-base-fontcolor: white;
+    --h1-base-fontcolor: white;
+    --column1-bg:#54695c;
+    --column2-bg: linear-gradient(to bottom, #36667a,#052b56);
+    } 
+  a{
+    font-size: var(--a-base-fontsize);
+    color: var(--a-base-fontcolor);
+  }
+  p{
+    font-size: var(--p-base-fontsize);
+    color: var(--p-base-fontcolor);
+  } 
+  li{
+    font-size: var(--li-base-fontsize);
+    color: var(--li-base-fontcolor);
+  }
+  h2{
+    font-size: var(--h2-base-fontsize);
+    color: var(--h2-base-fontcolor);
+  }
+  h1{
+    font-size: var(--h1-base-fontsize);
+    color: var(--h1-base-fontcolor);
+  }  
+  .title h1{
+    color: #cde7ff;
+    margin-top: 25px;
+  } 
+  
+/* ---- data tables inside questions ---- */
+.q-table-wrap{ overflow-x:auto; margin: 0 0 12px 0; max-width:100%; }
+.q-table{ border-collapse:collapse; font-size:0.95em; }
+.q-table th, .q-table td{ border:1px solid #8a8a8a; padding:6px 10px; text-align:center; white-space:nowrap; }
+.q-table th{ background:rgba(128,128,128,0.18); text-align:left; white-space:normal; min-width:110px; }

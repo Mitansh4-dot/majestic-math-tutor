@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Majestic Math Tutor - Tests</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+      <div class="title">
+        <h1>Majestic Math Tutor</h1>
+      </div> 
+      <div class="links">
+      <a href="home.html">Home</a> 
+      <a href="login.html">Login</a>
+      <a href="tests.html"><b>Tests</b></a>
+      <a href="reports.html">Reports</a> 
+      <a href="practice.html">Practice</a> 
+      <a href="history.html">History</a>
+      <div class="accessibility">
+      <button id="size-change" type="button" onclick="defaultSize()">100%</button> 
+      <button id="size-change" type="button" onclick="changeSize200()">200%</button> 
+      <button id="color-change" type="button" onclick="defaultColor()">Light</button> 
+      <button id="color-change" type="button" onclick="changeColor()">Dark</button>
+      </div>
+      </div> 
+    </nav>
+</header>
+
+<!-- Test selecting area, the display block just stacks elements vertically than being 
+ done flexible in flex display -->
+<div class="split-layout" id="testPickerArea" style="display:block; max-width:900px;">
+  <div class="board panel-info"> 
+    <h4 style="margin-bottom: 10px;">Instructions</h4>
+    <li style="margin-left: 10px;">Pick a test below. Each test has 20 questions marking to 80 points (5 easy X 2, 10 medium X 4, 5 difficult X 6).</li>
+  </div>
+  <h2 id="pickerTitle" style="margin-top: 10px;">Choose a test</h2>
+  <p id="pickerWho"></p>
+</div>
+
+<!-- Quiz view -->
+<div class="split-layout" id="quizArea" style="display:none;">
+  <div class="panel-info board">
+    <button class="btn" id="backButton" style="margin-bottom:16px;">&larr; Back to test list</button>
+    <div class="board">
+      <h4>Instructions</h4>
+      <li style="margin-left: 10px;"> Select the correct option and then scroll below to attempt the 20 questions, you can use the calculator for the test, after completing it, submit the test and then get the analysis with reports on the same with score and time also.</li>
+    </div>
+    <h2 id="quizTitle" style="margin-top: 10px;">Test</h2>
+    <div id="quizQuestionsArea"></div>
+  </div>
+  <div class="panel-side board">
+    <h3>Quiz Status</h3>
+    <div class="status-box">
+      <div class="stat-line" id="timerDisplay">Time - 00:00</div>
+      <button class="btn btn-wide" id="startButton">Start Quiz</button>
+      <button class="btn btn-wide" id="submitButton" disabled  style="margin-bottom: 15px;">Submit Quiz and View Score</button>
+      <div class="stat-line" id="scoreDisplay">Score Summary - / 0</div>
+      <p>Logged in as: <strong id="whoDisplay">Guest</strong></p>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="questions.js"></script>
+<script src="script.js"></script>
+</body>
+</html>  

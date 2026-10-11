@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Majestic Math Tutor - Practice</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="title">
+      <h1>Majestic Math Tutor</h1>
+    </div> 
+    <div class="links"> 
+    <a href="home.html">Home</a> 
+    <a href="login.html">Login</a>
+    <a href="tests.html">Tests</a>
+    <a href="reports.html">Reports</a> 
+    <a href="practice.html"><b>Practice</b></a> 
+    <a href="history.html">History</a>
+    <div class="accessibility">
+    <button id="size-change" type="button" onclick="defaultSize()">100%</button> 
+    <button id="size-change" type="button" onclick="changeSize200()">200%</button> 
+    <button id="color-change" type="button" onclick="defaultColor()">Light</button> 
+    <button id="color-change" type="button" onclick="changeColor()">Dark</button>
+    </div>
+    </div> 
+  </nav>
+</header>
+
+<div class="split-layout">
+  <div class="panel-info board">
+    <h4>Instructions</h4>
+    <li style="margin-left: 10px;">Below are the 2 micro-quizzes added for each unit and grade, select the one you want to attempt and submit it to find the scores. On the side of the page is link to the PDFs of practice materials unit wise, answer keys test-wise and formula sheet, open them in new tab to view them.</li>
+    <p id="practiceWho"></p>
+    <div class="unit-filter-row" id="unitFilterRow"></div>
+    <div id="microQuizArea"></div>
+  </div> 
+  <div class="panel-side board"> 
+    <h3>Practice material</h3>
+    <p><a href="https://drive.google.com/file/d/1Cer9mR_ZYGj0I4EpyiSyWtGXhDM0wxRg/view?usp=drive_link" target="_blank" rel="noopener">Unit 1 - Quadratics, Standard (9th)</a></p>
+    <p><a href="https://drive.google.com/file/d/1nMkQqez__CfYPyu514FdIbazgEFX2KEs/view?usp=drive_link" target="_blank" rel="noopener">Unit 1 - Quadratics, Extended (9th)</a></p>
+    <p><a href="https://drive.google.com/file/d/1haGgzhr6m9FhdifrlShXte33RJIco5P_/view?usp=drive_link" target="_blank" rel="noopener">Unit 1 - Functions, Standard (10th)</a></p>
+    <p><a href="https://drive.google.com/file/d/1_fmNekRB_6ZST4t5O8t7L4VkWFPxNlSh/view?usp=drive_link" target="_blank" rel="noopener">Unit 1 - Functions, Extended (10th)</a></p>
+    <p><a href="https://drive.google.com/file/d/1_SlApkDTQXdyP0oboBMldnUAqMbzUjSn/view?usp=drive_link" target="_blank" rel="noopener">Unit 2 - Transformations, Standard (9th)</a></p>
+    <p><a href="https://drive.google.com/file/d/15ohVfCPsiy8HC998tJBSOVdPDIHhaJeg/view?usp=drive_link" target="_blank" rel="noopener">Unit 2 - Transformations, Extended (9th)</a></p>
+    <p><a href="https://drive.google.com/file/d/1DRBnqTj_QklyFODRlDhI0Gfwowen7M0E/view?usp=drive_link" target="_blank" rel="noopener">Unit 2 - Data and Statistics, Standard (10th)</a></p>
+    <p><a href="https://drive.google.com/file/d/1SQ7121mWAd7QaErzYXoKzyaEUllS1OFB/view?usp=drive_link" target="_blank" rel="noopener">Unit 2 - Data and Statistics, Extended (10th)</a></p>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="questions.js"></script>
+<script src="script.js"></script>
+</body>
+</html> 

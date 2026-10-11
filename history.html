@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Majestic Math Tutor - History</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style1.css">
+</head>
+<body> 
+<header> 
+  <nav class="navbar">
+    <div class="title">
+      <h1>Majestic Math Tutor</h1>
+    </div> 
+    <div class="links"> 
+    <a href="home.html">Home</a> 
+    <a href="login.html">Login</a>
+    <a href="tests.html">Tests</a>
+    <a href="reports.html">Reports</a> 
+    <a href="practice.html">Practice</a> 
+    <a href="history.html"><b>History</b></a>
+    <div class="accessibility">
+    <button id="size-change" type="button" onclick="defaultSize()">100%</button> 
+    <button id="size-change" type="button" onclick="changeSize200()">200%</button> 
+    <button id="color-change" type="button" onclick="defaultColor()">Light</button> 
+    <button id="color-change" type="button" onclick="changeColor()">Dark</button>
+    </div> 
+    </div> 
+  </nav> 
+</header> 
+
+<div class="split-layout">
+  <div class="panel-info board">
+    <h4>Instructions</h4>
+    <li style="margin-bottom: 10px; margin-left: 10px;">Below is the summary of the all reports and the scores of the all tests and quizzes you have done. If you want to retake any assessment, then click on the retake button and attempt it.</li>
+    <div id="historyArea"></div>
+  </div>
+  <div class="panel-side board">
+    <h3 style="text-align: center;">Final Note: </h3>
+    <p>Thank you for Visiting my website, taking the tests and attempting the practice materials. I hope you liked and got help from them. Remember that with practice and slow interest in mathematics, we can make it much fun and easier. Use all the materials added in the website such as notes, questions, tests, quizzes, formula sheet and take help from them. Keep practicing and learning in mathematics, which is the most important thing for building interest and getting better into. Mathematics is the key to anything in the world, so learn and explore it.</p>
+    <p>Thank you for joining me on this Mathematics journey.</p>
+    <button class="btn btn-wide" id="retakeButton"> Retake Test </button>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="questions.js"></script>
+<script src="script.js"></script>
+</body>
+</html> 

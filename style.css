@@ -1,0 +1,416 @@
+
+  body{
+    margin: 0;  
+  }     
+  .container{ 
+    display:flex;
+    width:100%;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }    
+  .navbar{
+    display: flex;
+    background-image:url("banner.png");
+    width:100%; 
+    aspect-ratio: 513/65;
+    background-size:cover; 
+    background-repeat:no-repeat;
+    flex-direction: column;
+    text-align: center;
+  }  
+  .navbar a{
+    color:#000b3d;
+    margin-left:15px;
+    margin-right:15px;
+  } 
+  .navbar a:hover{
+    background-color: blue;
+    padding:8px;
+    border-radius: 5px;
+  }   
+  .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }  
+  .links{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }   
+  a{
+    font-size: var(--a-base);
+  }   
+  .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+  } 
+  .content{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }    
+  .column1{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 935px;
+    background: #cbffde; 
+  } 
+  .column2{
+    display: flex; 
+    flex-direction: column;
+    width: 40%;
+    background: linear-gradient(to bottom, #6eccf3,#074e9e);
+    align-items: center;
+    justify-content: center;
+    height:auto;
+  } 
+  .heroimage{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-65%, -70%); 
+    aspect-ratio: 800/533;
+    width: 500px;
+    object-fit: cover;
+    z-index: 10; 
+    border: 4px solid #fff;
+  } 
+  .cta-boxes{
+    display: flex;
+    width: 145px;
+    height: 145px;
+    text-align: center;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 75px;
+    animation: rotate 3s linear infinite;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 10px;
+  } 
+  .cta-boxes p{
+    font-size: 18px;
+    font-weight: bold;
+    animation: anti-rotate 3s linear infinite;
+  } 
+  .cta-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  } 
+  @keyframes rotate{
+    from{
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes anti-rotate{
+    from{
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  } 
+  p{
+    font-size: var(--p-base);
+  } 
+/* =========================================================================
+   MAJESTIC MATH TUTOR - styles.css
+   Comic-book theme: thick black outlines, flat solid shadows, no gradients.
+   ========================================================================= */
+
+/* ---------- Color variables (light mode = default) ---------- */
+:root{
+  --bg-color: #bcd3eb;           /* global workspace background */
+  --nav-color: #3f51b5;          /* header frame */
+  --nav-text: #ffffff;
+  --info-panel: #e2f0d9;         /* instruction / info panels */
+  --side-panel: #fce4d6;         /* side control decks / quiz status */
+  --math-bg: #fff2cc;            /* mathematics theme backgrounds */
+  --topic-badge: #b4c6e7;        /* topic elements / score badges */
+  --ink: #000000;
+  --card-bg: #ffffff;
+  --correct-color: #7fff00;      /* neon green for completed bars */
+  --not-taken-color: #d9d9d9;
+  --font-size-base: 21px;
+  --p-base:19px;
+  --a-base:19px;
+  background: linear-gradient(to bottom, #8cdc30, #e0eba9);
+  background: linear-gradient(to bottom, #ff701d, #ffbd43);
+  background: linear-gradient(to bottom, #fbf4ce, #fcdb43);
+  background: linear-gradient(to bottom, #8265cf, #6130e8);
+  background: linear-gradient(to bottom, #6eccf3,#074e9e);
+}    
+
+/* ---------- Dark mode: same layout, swapped colors ---------- */
+body.dark-mode{
+  --bg-color: #23262b;
+  --nav-color: #1a1d3a;
+  --nav-text: #ffffff;
+  --info-panel: #33402f;
+  --side-panel: #4a3728;
+  --math-bg: #4a4326;
+  --topic-badge: #33425c;
+  --ink: #f2f2f2;
+  --card-bg: #2b2e33;
+  --not-taken-color: #555555;
+} 
+
+*{ box-sizing: border-box; }
+
+html{ font-size: var(--font-size-base); }
+
+body{
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--ink);
+  font-family: sans-serif;
+} 
+
+h1, h2, h3, h4{ margin: 0 0 10px 0; }
+
+/* ---------- Comic-book "board" look: thick outline + flat shadow ---------- */
+.board{
+  border: 3px solid var(--ink);
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 16px 18px;
+} 
+/* ---------- Header / navigation ---------- */
+.accessibility button.default{
+  border-width: 3px;
+  border-color: #000000;
+}   
+
+/* ---------- Two column split layout ---------- */
+.split-layout{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+@media (max-width: 900px){
+  .split-layout{ grid-template-columns: 1fr; }
+} 
+
+.panel-info{ background: var(--info-panel); }
+.panel-side{ background: var(--side-panel); }
+.panel-math{ background: var(--math-bg); }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display: inline-block;
+  background: var(--topic-badge);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+} 
+.btn:active{ transform: translate(2px, 2px); }
+.btn:disabled{ opacity: 0.5; cursor: not-allowed; }
+.btn-wide{ display:block; width: 100%; text-align:center; margin-top: 14px; }
+
+/* ---------- Forms ---------- */
+label{ display:block; font-weight:bold; margin: 14px 0 6px 0; }
+input[type=text], select{
+  width: 100%;
+  padding: 10px 12px;
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+} 
+.error-msg{ color: #b3261e; font-weight: bold; margin-top: 10px; }
+
+.login-card{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 520px;
+  max-height: 75vh;
+  overflow-y: auto;
+}  
+.top-container{
+  background-image: url("Trigonometry.jpeg");
+  width: 100%;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+.middle-container{
+  background-image: url("Quadratics.jpg");
+  width: 100%;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom-container{
+  background-image: url("CentralTendency.jpeg");
+  width: 100%;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+/* ---------- Home page: animated topic badges ---------- */
+.badge-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+} 
+.badge{
+  background: var(--topic-badge);
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  animation: continuousRotation 8s linear infinite;
+}
+@keyframes continuousRotation{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
+}
+.badge span{
+  display: inline-block;
+  animation: counterRotation 8s linear infinite;
+}
+@keyframes counterRotation{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(-360deg); }
+}
+
+/* ---------- Tests page ---------- */
+.test-card{
+  background: var(--card-bg);
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+} 
+.question-box{
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.question-box p.q-text{ font-weight: bold; margin: 0 0 10px 0; }
+.option-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.option-item{
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  padding: 9px 10px;
+  cursor: pointer;
+  background: #fff;
+}
+.option-item.picked{ background: var(--topic-badge); }
+.option-item.right-answer{ background: var(--correct-color); }
+.option-item.wrong-answer{ background: #ffb3ab; }
+
+.status-box .stat-line{
+  background: var(--card-bg);
+  border: 3px solid var(--ink);
+  border-radius: 20px;
+  padding: 10px 14px;
+  text-align:center;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* ---------- Reports page: conditional stacked bars ---------- */
+.chart-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 16px;
+  align-items: end;
+  height: 220px;
+  border-left: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding: 10px 14px 0 14px;
+}
+.chart-col{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.chart-bar{
+  width: 42px;
+  border: 3px solid var(--ink);
+  border-radius: 4px 4px 0 0;
+  background: var(--not-taken-color);
+  transition: height 0.4s ease, background 0.4s ease;
+}
+.chart-bar.completed{ background: var(--correct-color); }
+.chart-col-label{ font-size: 0.75rem; font-weight: bold; margin-top: 6px; text-align:center; }
+.chart-col-status{ font-size: 0.68rem; }
+
+/* ---------- Practice page ---------- */
+.unit-filter-row{ display:flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+.unit-filter-row button.selected-unit{
+  background: var(--correct-color);
+}
+
+/* ---------- History page ---------- */
+.history-row{
+  background: var(--card-bg);
+  border: 3px solid var(--ink);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.muted{ font-style: italic; opacity: 0.75; }
+
+/* ---- data tables inside questions ---- */
+.q-table-wrap{ overflow-x:auto; margin: 0 0 12px 0; max-width:100%; }
+.q-table{ border-collapse:collapse; font-size:0.95em; }
+.q-table th, .q-table td{ border:1px solid #8a8a8a; padding:6px 10px; text-align:center; white-space:nowrap; }
+.q-table th{ background:rgba(128,128,128,0.18); text-align:left; white-space:normal; min-width:110px; }

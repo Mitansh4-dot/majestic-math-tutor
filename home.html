@@ -1,0 +1,104 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style1.css">
+  <!-- PyScript: just used for the small welcome-back message below.
+       Must be a pinned release path - the bare "pyscript.net" URL has no
+       real css/js at that address and silently fails to load. -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.6.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.6.1/core.js"></script>
+</head> 
+<body>    
+<header>
+  <nav class="navbar">
+    <div class="title">
+      <h1>Majestic Math Tutor</h1>
+    </div> 
+    <div class="links"> 
+    <a href="home.html"><b>Home</b></a> 
+    <a href="login.html">Login</a>
+    <a href="tests.html">Tests</a>
+    <a href="reports.html">Reports</a> 
+    <a href="practice.html">Practice</a> 
+    <a href="history.html">History</a>
+    <div class="accessibility">
+    <button id="size-change" type="button" onclick="defaultSize()">100%</button> 
+    <button id="size-change" type="button" onclick="changeSize200()">200%</button> 
+    <button id="color-change" type="button" onclick="defaultColor()">Light</button> 
+    <button id="color-change" type="button" onclick="changeColor()">Dark</button>
+    </div>  
+  </nav>
+</header> 
+  <div class="container">    
+    <div class="content">
+      <div class="column1">
+        <p id="welcomeMessage" style="margin-left: 10px; margin-top: 10px; font-weight: bold;"></p>
+        <h2 style="margin-left: 10px; margin-top: 10px;">Our Website's Aim and Learning :</h2>  
+        <ul style="margin-bottom: 350px;">
+          <li>To learn mathematics with evoking interest and engagement with quizzes, tests and practice materials as per unit, grade and level wise</li>
+          <li>To share created practice materials and resources unit-wise with notes and formula sheet</li>
+          <li>To provide feedback, scores, and reports on the tests to improve further with feedback and other details with graph</li>
+        </ul> 
+        <h2 style="margin-left: 10px;">Instructions :</h2> 
+        <ul>
+          <li>You can change the accessibility for increasing the text size to 200% and also changing the color of the web page to darker mode if you want to do so</li>
+          <li>Next, this is just the home page, proceed towards the login page, add your details and continue towards tests, reports, practice materials, and history of this Mathematics Journey with me</li>  
+        </ul>
+      </div>  
+      <img src="P1_heroimage.jpg" alt="Mathematics Image" class="heroimage"/>  
+      <div class="column2">
+      <div class="video-container" style="margin-bottom: 50px; margin-top: 50px;">
+        <video src="P1_Transformations.mp4" style="width: 300px; height: auto;" controls>
+      </div> 
+        <div class="cta-row">
+          <div class="cta-boxes">
+            <p>Transformations</p>
+          </div>
+          <div class="cta-boxes">
+            <p>Quadratics</p>
+          </div> 
+        </div>
+        <div class="cta-row">
+          <div class="cta-boxes">
+            <p>Functions</p> 
+          </div>
+          <div class="cta-boxes">
+            <p>Data and Statistics</p> 
+          </div>
+        </div> 
+      </div>
+    </div> 
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="questions.js"></script>
+<script src="script.js"></script>
+
+<!-- The only bit of Python on the whole site: a small welcome-back
+     message. script.js already saved the logged-in student's name onto
+     window.mmtCurrentUserName (empty string if nobody's logged in yet),
+     so this just reads that and decides what to say. -->
+<script type="py">
+  from pyscript import document
+  from js import window
+
+  def build_welcome_message(name):
+      if name == "":
+          return "Welcome! Please visit the Login page to get started."
+      else:
+          return "Welcome back, " + name + "!"
+
+  user_name = window.mmtCurrentUserName
+  message = build_welcome_message(user_name)
+
+  welcome_box = document.getElementById("welcomeMessage")
+  welcome_box.innerText = message
+</script>
+</body> 
+</html>
+
+

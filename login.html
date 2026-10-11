@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style1.css">
+</head> 
+<body>   
+<header>
+  <nav class="navbar">
+    <div class="title">
+      <h1>Majestic Math Tutor</h1>
+    </div> 
+    <div class="links">
+    <a href="home.html">Home</a> 
+    <a href="login.html"><b>Login</b></a>
+    <a href="tests.html">Tests</a>
+    <a href="reports.html">Reports</a> 
+    <a href="practice.html">Practice</a> 
+    <a href="history.html">History</a>
+    <div class="accessibility">
+    <button id="size-change" type="button" onclick="defaultSize()">100%</button> 
+    <button id="size-change" type="button" onclick="changeSize200()">200%</button> 
+    <button id="color-change" type="button" onclick="defaultColor()">Light</button> 
+    <button id="color-change" type="button" onclick="changeColor()">Dark</button>
+    </div> 
+    </div> 
+  </nav>
+</header>
+  <div class="container1">   
+    <main class="login-card">
+      <div class="board">
+        <h4 style="margin-bottom: 10px;">Instructions</h4> 
+        <li style="margin-left: 5px;">Add your name, grade and level and then start the test by clicking on the button below after you fill the details</li>
+        <label for="inputName">Your Name : </label>
+        <input type="text" id="inputName">
+
+        <label for="inputGrade">Grade : </label>
+        <select id="inputGrade">
+          <option value="">Select grade</option>
+          <option value="9">9th</option>
+          <option value="10">10th</option>
+        </select>
+        <!--The inputGrade, Name and Track are used for Javascript logic and the value is just 
+        used for saving those values to the computer after when they select, and if they don't 
+        select then it is null as "" showing the only select grade etc option--> 
+        <label for="inputTrack">Level : </label>
+        <select id="inputTrack">
+          <option value="">Select level</option>
+          <option value="Standard">Standard</option>
+          <option value="Extended">Extended</option>
+        </select>
+
+        <button class="btn btn-wide" id="proceedButton">Proceed to Test</button>
+      </div> 
+    </main>   
+    <div class="top-container"></div>
+    <div class="middle-container"></div>
+    <div class="bottom-container"></div>
+  </div> 
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="questions.js"></script>
+<script src="script.js"></script>
+</body> 
+</html>  
