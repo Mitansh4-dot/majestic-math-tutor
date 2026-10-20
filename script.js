@@ -97,7 +97,38 @@ function loadUser() {
    "Welcome back" message - just a name on window, nothing fancier. Empty
    string means nobody has logged in on this browser yet. */
 window.mmtCurrentUserName = loadUser().name;
+function sendAnalyticsEvent(eventName, details) {
+  if (typeof gtag !== "function") { return; }
+  try {
+    gtag("event", eventName, details);
+  } catch (error) {
+    /* analytics must never break the website */
+  }
+}
 
+function sendAttemptToAnalytics(attempt) {
+  if (attempt.kind === "test") {
+    sendAnalyticsEvent("test_completed", {
+      grade: attempt.grade,
+      track: attempt.track,
+      test_number: attempt.testNumber,
+      unit: attempt.unitLabel,
+      score: attempt.score,
+      max_score: attempt.total,
+      percent: attempt.percent
+    });
+  } else {
+    sendAnalyticsEvent("quiz_completed", {
+      grade: attempt.grade,
+      track: attempt.track,
+      unit: attempt.unitLabel,
+      quiz_number: attempt.quizNumber,
+      score: attempt.score,
+      max_score: attempt.total,
+      percent: attempt.percent
+    });
+  }
+} 
 function saveAttempt(attemptObject) {
   /* attach who this attempt belongs to, so it's visible right on the
      attempt itself (in Firestore) instead of only in the separate
@@ -109,6 +140,7 @@ function saveAttempt(attemptObject) {
   history.unshift(attemptObject);
   localStorage.setItem("mmt_history", JSON.stringify(history));
   mirrorAttemptToFirestore(attemptObject);
+  sendAttemptToAnalytics(attemptObject);
 }
 
 function loadHistory() {
@@ -166,6 +198,7 @@ function setupLoginPage() {
     } 
     var userObject = { name: name, grade: grade, track: track };
     saveUser(userObject);
+    sendAnalyticsEvent("student_login", { grade: grade, track: track, transport_type: "beacon" });
     window.location.href = "tests.html";
   }); 
 } 
